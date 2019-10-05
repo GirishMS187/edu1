@@ -22,5 +22,11 @@ mvn clean'''
         sh 'mvn -Dmaven.test.failure.ignore=true install'
       }
     }
+    stage('report') {
+      steps {
+        junit 'target/surefire-reports/*.xml'
+        archiveArtifacts 'target/*jar.target/*.hpi'
+      }
+    }
   }
 }
