@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('init') {
       steps {
-        echo 'Initialization'
+        sh '''echo PATH=${PATH}
+echo M2_HOME=${M2_HOME}'''
       }
     }
     stage('build code') {
