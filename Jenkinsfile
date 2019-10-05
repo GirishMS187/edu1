@@ -6,5 +6,10 @@ pipeline {
         echo 'Initialization'
       }
     }
+    stage('build code') {
+      steps {
+        sh 'echo $hi'
+      }
+    }
   }
 }
