@@ -6,7 +6,8 @@ pipeline {
         stage('init') {
           steps {
             sh '''echo PATH=${PATH}
-echo M2_HOME=${M2_HOME}'''
+echo M2_HOME=${M2_HOME}
+mvn clean'''
           }
         }
         stage('init hi') {
@@ -14,6 +15,11 @@ echo M2_HOME=${M2_HOME}'''
             sh 'echo $hi'
           }
         }
+      }
+    }
+    stage('build') {
+      steps {
+        sh 'mvn install'
       }
     }
   }
